@@ -3,169 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The AI Investment Committee - Market Validation</title>
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>The Algorithmic Boardroom - Quantitative Franchise Analysis</title>
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --card-dark: #1e293b;
-            --accent-gold: #fbbf24;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg-light: #fdfbf7;      /* Warm, premium archival paper tone */
+            --text-dark: #1e293b;     /* Deep charcoal for comfortable reading */
+            --accent-green: #14532d;  /* Deep forest green for traditional finance */
+            --card-bg: #ffffff;       /* Pure white for data containers */
+            --border-color: #e2e8f0;  /* Subtle grey for structured borders */
+            --text-muted: #64748b;    /* Muted grey for auxiliary text */
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 4rem 2rem;
         }
 
-        /* Hero Section */
+        /* Publication-Style Header */
         header {
             text-align: center;
-            padding: 5rem 1rem 3rem 1rem;
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         h1 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            letter-spacing: -0.05em;
-        }
-
-        .highlight {
-            color: var(--accent-gold);
+            font-family: Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
         }
 
         p.subtitle {
-            font-size: 1.25rem;
-            color: var(--text-muted);
+            font-size: 1.15rem;
+            color: var(--text-dark);
             max-width: 700px;
             margin: 0 auto 2.5rem auto;
+            font-style: italic;
         }
 
-        /* Form Styling */
+        /* Serious, Standard Form Styling */
         .form-container {
-            background-color: var(--card-dark);
-            padding: 2rem;
-            border-radius: 12px;
-            max-width: 550px;
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 4px;
+            max-width: 500px;
             margin: 0 auto;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-            border: 1px solid #334155;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .form-group {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         input[type="email"] {
             flex: 1;
             padding: 0.75rem 1rem;
-            border-radius: 6px;
-            border: 1px solid #475569;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            border-radius: 4px;
+            border: 1px solid #cbd5e1;
+            background-color: #fff;
+            color: var(--text-dark);
             font-size: 1rem;
         }
 
         input[type="email"]:focus {
-            outline: 2px solid var(--accent-gold);
+            outline: 2px solid var(--accent-green);
         }
 
         button {
-            background-color: var(--accent-gold);
-            color: #000;
+            background-color: var(--accent-green);
+            color: #ffffff;
             border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
             transition: background 0.2s;
         }
 
         button:hover {
-            background-color: #f59e0b;
+            background-color: #166534;
         }
 
         .form-footer {
-            margin-top: 1rem;
+            margin-top: 1.25rem;
             font-size: 0.85rem;
             color: var(--text-muted);
+            text-align: center;
         }
 
-        /* Features/Layout Layout */
+        /* Methodical Layout (List Layout Layout) */
         .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 5rem;
+            margin-top: 4rem;
         }
 
-        .card {
-            background-color: var(--card-dark);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid #334155;
+        .feature-item {
+            margin-bottom: 2.5rem;
         }
 
-        .card i {
-            color: var(--accent-gold);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .card h3 {
+        .feature-item h3 {
+            font-family: Georgia, serif;
+            font-size: 1.3rem;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
             margin-top: 0;
-            font-size: 1.25rem;
         }
 
-        .card p {
-            color: var(--text-muted);
+        .feature-item p {
+            color: var(--text-dark);
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* The Final Deliverable Section */
+        .report-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            margin: 4rem 0;
+            border-radius: 4px;
+        }
+
+        .report-section h2 {
+            font-family: Georgia, serif;
+            color: var(--accent-green);
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .report-component {
             font-size: 0.95rem;
-            margin-bottom: 0;
         }
 
-        /* Interactive Preview Element */
+        .report-component strong {
+            display: block;
+            color: var(--accent-green);
+            margin-bottom: 0.25rem;
+        }
+
+        /* Deep Analysis Sample Section */
         .preview-box {
-            background-color: #020617;
-            border-radius: 8px;
-            border: 1px solid #1e293b;
-            padding: 1.5rem;
-            margin-top: 5rem;
-            font-family: monospace;
+            background-color: var(--card-bg);
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            margin: 4rem 0;
         }
 
         .preview-header {
-            color: var(--accent-gold);
-            border-bottom: 1px solid #1e293b;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+            font-family: Georgia, serif;
+            color: var(--accent-green);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
             font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .dialogue {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            border-left: 3px solid var(--border-color);
+            padding-left: 1rem;
+        }
+
+        .dialogue:last-child {
+            border-left-color: var(--accent-green);
+            margin-bottom: 0;
         }
 
         .agent-name {
-            font-weight: bold;
+            font-weight: 700;
+            display: block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.25rem;
         }
         
-        .coke-agent { color: #ef4444; }
-        .bb-agent { color: #3b82f6; }
-        .wb-agent { color: #10b981; }
+        .coke-agent { color: #b91c1c; }
+        .bb-agent { color: #475569; }
+        .wb-agent { color: var(--accent-green); }
 
         @media (max-width: 600px) {
             .form-group {
@@ -180,59 +225,65 @@
 <body>
 
     <div class="container">
-        <!-- Hero -->
+        <!-- Editorial Header -->
         <header>
-            <h1>Put Your Stock Picks Through a <span class="highlight">Two-Tier AI Boardroom</span></h1>
-            <p class="subtitle">We deploy 50 specialist AI sub-agents to audit microeconomic business quality, feeding into a Supreme Court of 5 independent Warren Buffett models. Discover hidden flaws before you deploy capital.</p>
+            <h1>The Algorithmic Boardroom</h1>
+            <p class="subtitle">Submit a single ticker. Get a comprehensive, unbiased Boardroom Audit Report analyzing microeconomic consumer franchises, cross-examined against strict fundamental value investing principles.</p>
             
             <!-- Email Form -->
             <div class="form-container">
                 <!-- PASTE YOUR FORMSPREE LINK IN THE ACTION ATTRIBUTE BELOW -->
-                <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                <form action="YOUR_FORMSPREE_LINK_HERE" method="POST">
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Enter your email address" required>
-                        <button type="submit">Join Private Beta</button>
+                        <input type="email" name="email" placeholder="Enter corporate email address" required>
+                        <button type="submit">Get Your Audit Report</button>
                     </div>
                 </form>
                 <div class="form-footer">
-                    <i class="fa-solid fa-bolt"></i> Join value investors waiting for early framework access. Free during beta.
+                    Accepting applications for our private beta. You will receive one free stock audit report.
                 </div>
             </div>
         </header>
 
-        <!-- Simulation Sample Preview -->
-        <div class="preview-box">
-            <div class="preview-header"><i class="fa-solid fa-terminal"></i> LIVE SIMULATION PREVIEW: TARGET TICKER [AUDIT]</div>
-            <div class="dialogue">
-                <span class="agent-name coke-agent">[Committee 2 - Share of Mind Agent]:</span> "Target company displays a 92% structural similarity to Coca-Cola's early consumer ecosystem. Inelastic product demand present."
-            </div>
-            <div class="dialogue">
-                <span class="agent-name bb-agent">[Committee 5 - Failure Agent (Blockbuster)]:</span> "Objection. Tech infrastructure shift renders their distribution footprint obsolete within 36 months. Capital expenditure will spike."
-            </div>
-            <div class="dialogue">
-                <span class="agent-name wb-agent">[Supreme Court - Buffett Agent #1]:</span> "Order. Committee reports received. Initiating core mental model cross-examination regarding management's historical capital allocation habits."
-            </div>
-        </div>
-
-        <!-- The Mechanics (List Layout Layout) -->
+        <!-- Methodical Framework Overview -->
         <div class="features">
-            <div class="card">
-                <i class="fa-solid fa-sitemap"></i>
-                <h3>3 Core Sub-Committees</h3>
-                <p>50 agents broken into pure asset classes: Low-Cost Producers, Share of Mind Moats, and High-Sticky Products. They run parallel micro audits.</p>
+            <div class="feature-item">
+                <h3>I. Layered Microeconomic Audits</h3>
+                <p>Target companies are broken down across 50 narrow parameters, focusing strictly on cost leadership dynamics, consumer mind-share longevity, pricing power elasticity, and historical capital allocation thresholds.</p>
             </div>
-            <div class="card">
-                <i class="fa-solid fa-gavel"></i>
-                <h3>The Supreme Court Deliberation</h3>
-                <p>5 core Warren Buffett agents cross-examine sub-committee metrics using strict fundamental value investing principles.</p>
+            
+            <div class="feature-item">
+                <h3>II. The Anti-Moat Friction Panel</h3>
+                <p>To eliminate confirmation bias, a dedicated subset of historical corporate failure models stress-test the asset, actively working to identify the precise structural vulnerabilities that broke legacy monopolies.</p>
             </div>
-            <div class="card">
-                <i class="fa-solid fa-file-shield"></i>
-                <h3>Unbiased Failure Safeguards</h3>
-                <p>Dedicated anti-moat models trained on historic corporate bankruptcies act as permanent short-sellers to kill bad investment ideas.</p>
+
+            <div class="feature-item">
+                <h3>III. Multi-Tier Judicial Synthesis</h3>
+                <p>Sub-committee data is presented directly to a final panel of 5 independent judicial models tasked with cross-examining the findings against strict, conservative mental models before generating a final verdict.</p>
             </div>
         </div>
-    </div>
 
-</body>
-</html>
+        <!-- The Final Deliverable Feature Section -->
+        <div class="report-section">
+            <h2>The Deliverable: Your Comprehensive Stock Audit Report</h2>
+            <p>Every submission triggers a deep-dive analysis. You receive a structured, printable report detailing the exact stability of the business. Each report contains:</p>
+            <div class="report-grid">
+                <div class="report-component">
+                    <strong>1. The Franchise Scorecard</strong>
+                    A cold, mathematical rating on the company's "share of mind," pricing elasticity, and moat durability.
+                </div>
+                <div class="report-component">
+                    <strong>2. The Deliberation Transcript</strong>
+                    The unedited argument between the 50 sub-committee analysts and the 5 final judicial frameworks.
+                </div>
+                <div class="report-component">
+                    <strong>3. The Bear-Case Friction Map</strong>
+                    The specific corporate failures (e.g., Blockbuster, Kodak, Sears clones) that mapped closest to your stock's current vulnerabilities.
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytical Proof Transcript -->
+        <div class="preview-box">
+            <div class="preview-header">Audit Log Excerpt: Case Analysis [Qualitative Infrastructure Review]</div>
+            <div class="dialogue">
