@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI Investment Committee - Market Validation</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-dark: #1e293b;
+            --accent-gold: #fbbf24;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 5rem 1rem 3rem 1rem;
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+        }
+
+        p.subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        /* Form Styling */
+        .form-container {
+            background-color: var(--card-dark);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 550px;
+            margin: 0 auto;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            border: 1px solid #475569;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        input[type="email"]:focus {
+            outline: 2px solid var(--accent-gold);
+        }
+
+        button {
+            background-color: var(--accent-gold);
+            color: #000;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #f59e0b;
+        }
+
+        .form-footer {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Features/Layout Layout */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+        .card {
+            background-color: var(--card-dark);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .card i {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* Interactive Preview Element */
+        .preview-box {
+            background-color: #020617;
+            border-radius: 8px;
+            border: 1px solid #1e293b;
+            padding: 1.5rem;
+            margin-top: 5rem;
+            font-family: monospace;
+        }
+
+        .preview-header {
+            color: var(--accent-gold);
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .dialogue {
+            margin-bottom: 1rem;
+        }
+
+        .agent-name {
+            font-weight: bold;
+        }
+        
+        .coke-agent { color: #ef4444; }
+        .bb-agent { color: #3b82f6; }
+        .wb-agent { color: #10b981; }
+
+        @media (max-width: 600px) {
+            .form-group {
+                flex-direction: column;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Hero -->
+        <header>
+            <h1>Put Your Stock Picks Through a <span class="highlight">Two-Tier AI Boardroom</span></h1>
+            <p class="subtitle">We deploy 50 specialist AI sub-agents to audit microeconomic business quality, feeding into a Supreme Court of 5 independent Warren Buffett models. Discover hidden flaws before you deploy capital.</p>
+            
+            <!-- Email Form -->
+            <div class="form-container">
+                <!-- PASTE YOUR FORMSPREE LINK IN THE ACTION ATTRIBUTE BELOW -->
+                <form action="YOUR_FORMSPREE_LINK_HERE" method="POST">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Enter your email address" required>
+                        <button type="submit">Join Private Beta</button>
+                    </div>
+                </form>
+                <div class="form-footer">
+                    <i class="fa-solid fa-bolt"></i> Join value investors waiting for early framework access. Free during beta.
+                </div>
+            </div>
+        </header>
+
+        <!-- Simulation Sample Preview -->
+        <div class="preview-box">
+            <div class="preview-header"><i class="fa-solid fa-terminal"></i> LIVE SIMULATION PREVIEW: TARGET TICKER [AUDIT]</div>
+            <div class="dialogue">
+                <span class="agent-name coke-agent">[Committee 2 - Share of Mind Agent]:</span> "Target company displays a 92% structural similarity to Coca-Cola's early consumer ecosystem. Inelastic product demand present."
+            </div>
+            <div class="dialogue">
+                <span class="agent-name bb-agent">[Committee 5 - Failure Agent (Blockbuster)]:</span> "Objection. Tech infrastructure shift renders their distribution footprint obsolete within 36 months. Capital expenditure will spike."
+            </div>
+            <div class="dialogue">
+                <span class="agent-name wb-agent">[Supreme Court - Buffett Agent #1]:</span> "Order. Committee reports received. Initiating core mental model cross-examination regarding management's historical capital allocation habits."
+            </div>
+        </div>
+
+        <!-- The Mechanics (List Layout Layout) -->
+        <div class="features">
+            <div class="card">
+                <i class="fa-solid fa-sitemap"></i>
+                <h3>3 Core Sub-Committees</h3>
+                <p>50 agents broken into pure asset classes: Low-Cost Producers, Share of Mind Moats, and High-Sticky Products. They run parallel micro audits.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-gavel"></i>
+                <h3>The Supreme Court Deliberation</h3>
+                <p>5 core Warren Buffett agents cross-examine sub-committee metrics using strict fundamental value investing principles.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-file-shield"></i>
+                <h3>Unbiased Failure Safeguards</h3>
+                <p>Dedicated anti-moat models trained on historic corporate bankruptcies act as permanent short-sellers to kill bad investment ideas.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
