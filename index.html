@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Algorithmic Boardroom - Quantitative Franchise Analysis</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%2314532d'/%3E%3Ctext x='50%25' y='57%25' font-family='Georgia, serif' font-size='60' font-weight='700' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'%3EB%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%2314532d'/%3E%3Ctext x='50%25' y='57%25' font-family='Georgia, serif' font-size='60' font-weight='700' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'%3EB%3C/text%3E%3C/svg%3E">
     <style>
         :root {
             --bg-light: #fdfbf7;      /* Warm, premium archival paper tone */
@@ -167,6 +167,22 @@
             margin-bottom: 0.25rem;
         }
 
+        /* Bottom CTA Specific Card */
+        .bottom-cta-container {
+            margin: 4rem auto;
+            border-top: 2px solid var(--accent-green);
+            padding-top: 3rem;
+        }
+
+        .bottom-cta-container h3 {
+            font-family: Georgia, serif;
+            font-size: 1.5rem;
+            color: var(--accent-green);
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
         /* Feedback Section */
         .feedback-section {
             background-color: #f1f5f9;
@@ -246,7 +262,7 @@
             <h1>The Algorithmic Boardroom</h1>
             <p class="subtitle">Submit a single ticker. Get a comprehensive, unbiased Boardroom Audit Report powered by a two-tier AI multi-agent architecture trained on strict fundamental value investing principles.</p>
             
-            <!-- Email Form -->
+            <!-- Top Email Form -->
             <div class="form-container">
                 <form action="https://formspree.io" method="POST">
                     <div class="form-group">
@@ -282,10 +298,3 @@
         <div class="report-section">
             <h2>The Deliverable: Your Comprehensive Stock Audit Report</h2>
             <p>Every submission triggers an autonomous deep-dive analysis. You receive a structured, printable report detailing the exact stability of the business. Each report contains:</p>
-            <div class="report-grid">
-                <div class="report-component">
-                    <strong>1. The Franchise Scorecard</strong>
-                    A cold, algorithmic rating on the company's "share of mind," pricing elasticity, and moat durability.
-                </div>
-                <div class="report-component">
-                    <strong>2. The Deliberation Transcript</strong>
