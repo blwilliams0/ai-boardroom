@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Algorithmic Boardroom - Quantitative Franchise Analysis</title>
+    <title>The Algorithmic Boardroom - Free AI Stock Audits</title>
 
 
 <!-- Browser Tab Icon / Favicon -->
-<link rel="icon" type="image/x-icon" href="./favicon.ico?v=4">
-<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?v=4">
-<link rel="icon" type="image/png" href="./algboardroom-logo.png?v=4">
-<link rel="apple-touch-icon" href="./algboardroom-logo.png?v=4">
+<link rel="icon" type="image/x-icon" href="./favicon.ico?v=5">
+<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?v=5">
+<link rel="icon" type="image/png" href="./algboardroom-logo.png?v=5">
+<link rel="apple-touch-icon" href="./algboardroom-logo.png?v=5">
 
 <style>
     :root {
@@ -64,31 +64,62 @@
         box-shadow: 0 10px 28px rgba(20, 83, 45, 0.22);
     }
 
+    .eyebrow {
+        color: var(--accent-green);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+    }
+
     h1 {
         font-family: Georgia, serif;
-        font-size: 2.5rem;
+        font-size: 2.75rem;
         font-weight: 700;
         color: var(--accent-green);
-        margin-bottom: 1.5rem;
-        line-height: 1.2;
+        margin: 0 0 1.25rem 0;
+        line-height: 1.12;
     }
 
     p.subtitle {
         font-size: 1.15rem;
         color: var(--text-dark);
-        max-width: 700px;
-        margin: 0 auto 2.5rem auto;
-        font-style: italic;
+        max-width: 720px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .promise-list {
+        max-width: 620px;
+        margin: 0 auto 2.25rem auto;
+        text-align: left;
+        background-color: rgba(255, 255, 255, 0.55);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .promise-list p {
+        margin: 0.4rem 0;
+        font-size: 0.98rem;
     }
 
     .form-container {
         background-color: var(--card-bg);
         padding: 2.5rem;
-        border-radius: 4px;
-        max-width: 500px;
+        border-radius: 6px;
+        max-width: 520px;
         margin: 0 auto;
         border: 1px solid var(--border-color);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-title {
+        font-family: Georgia, serif;
+        color: var(--accent-green);
+        font-size: 1.25rem;
+        margin: 0 0 1rem 0;
+        text-align: center;
     }
 
     .form-group {
@@ -100,7 +131,7 @@
     textarea {
         flex: 1;
         width: 100%;
-        padding: 0.75rem 1rem;
+        padding: 0.8rem 1rem;
         border-radius: 4px;
         border: 1px solid #cbd5e1;
         background-color: #ffffff;
@@ -119,9 +150,9 @@
         background-color: var(--accent-green);
         color: #ffffff;
         border: none;
-        padding: 0.75rem 2rem;
+        padding: 0.8rem 1.5rem;
         border-radius: 4px;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 1rem;
         cursor: pointer;
         transition: background 0.2s ease, transform 0.2s ease;
@@ -138,6 +169,24 @@
         font-size: 0.85rem;
         color: var(--text-muted);
         text-align: center;
+    }
+
+    .section-intro {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    .section-intro h2 {
+        font-family: Georgia, serif;
+        color: var(--accent-green);
+        font-size: 1.8rem;
+        margin: 0 0 0.75rem 0;
+    }
+
+    .section-intro p {
+        color: var(--text-muted);
+        max-width: 650px;
+        margin: 0 auto;
     }
 
     .features {
@@ -167,7 +216,7 @@
         border: 1px solid var(--border-color);
         padding: 2.5rem;
         margin: 4rem 0;
-        border-radius: 4px;
+        border-radius: 6px;
     }
 
     .report-section h2 {
@@ -199,7 +248,7 @@
 
     .preview-box {
         background-color: var(--card-bg);
-        border-radius: 4px;
+        border-radius: 6px;
         border: 1px solid var(--border-color);
         padding: 2rem;
         margin: 4rem 0;
@@ -270,7 +319,7 @@
         border: 1px dashed var(--border-color);
         padding: 2rem;
         margin-top: 4rem;
-        border-radius: 4px;
+        border-radius: 6px;
     }
 
     .feedback-section h3 {
@@ -308,13 +357,14 @@
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 2.15rem;
         }
 
         .form-container,
         .report-section,
         .preview-box,
-        .feedback-section {
+        .feedback-section,
+        .promise-list {
             padding: 1.5rem;
         }
 
@@ -331,122 +381,141 @@
     <div class="container">
 
 
-    <!-- Editorial Header -->
+    <!-- Hero Section -->
     <header>
-        <img src="./algboardroom-logo.png?v=4" alt="The Algorithmic Boardroom logo" class="site-logo">
+        <img src="./algboardroom-logo.png?v=5" alt="The Algorithmic Boardroom logo" class="site-logo">
 
-        <h1>The Algorithmic Boardroom</h1>
+        <div class="eyebrow">Private beta now open</div>
+
+        <h1>Get a Free AI Stock Audit Before You Buy or Hold</h1>
 
         <p class="subtitle">
-            Submit a single ticker. Get a comprehensive, unbiased Boardroom Audit Report powered by a two-tier AI multi-agent architecture trained on strict fundamental value investing principles.
+            Join the early access list and receive two free sample stock reports showing business quality, moat risk, management incentives, valuation red flags, and possible cognitive-bias traps.
         </p>
+
+        <div class="promise-list">
+            <p><strong>What you get:</strong> two free AI-generated stock audit reports during the private beta.</p>
+            <p><strong>Built for:</strong> investors who want a clearer second opinion before buying, holding, or selling.</p>
+            <p><strong>Focus areas:</strong> moat durability, pricing power, management incentives, valuation risk, and red flags.</p>
+        </div>
 
         <!-- Top Email Form -->
         <div class="form-container">
+            <h2 class="form-title">Get 2 Free Stock Audits</h2>
+
             <form action="https://formspree.io/f/xnjkavaq" method="POST">
                 <input type="hidden" name="_subject" value="New Algorithmic Boardroom Signup">
 
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="Enter email address" required>
-                    <button type="submit">Get Your Audit Reports</button>
+                    <input type="email" name="email" placeholder="Email address" required>
+                    <button type="submit">Join Beta</button>
                 </div>
             </form>
 
             <div class="form-footer">
-                Accepting applications for our private AI-driven beta. You will receive two free stock audit reports.
+                No spam. Just early access to the research beta and your free audit reports.
             </div>
         </div>
     </header>
 
     <main>
+        <!-- Direct Value Section -->
+        <section class="report-section">
+            <h2>What The Report Helps You Answer</h2>
+
+            <p>
+                Most stock research focuses on price targets, headlines, or surface-level financials. The Algorithmic Boardroom is designed to pressure-test the actual business behind the ticker.
+            </p>
+
+            <div class="report-grid">
+                <div class="report-component">
+                    <strong>Is the business actually durable?</strong>
+                    Review moat strength, pricing power, customer loyalty, and competitive pressure.
+                </div>
+
+                <div class="report-component">
+                    <strong>What could break the thesis?</strong>
+                    Identify structural risks, disruption threats, and hidden fragility in the business model.
+                </div>
+
+                <div class="report-component">
+                    <strong>Is management aligned?</strong>
+                    Flag incentive distortions, overoptimistic language, and capital-allocation concerns.
+                </div>
+            </div>
+        </section>
+
         <!-- Methodical Framework Overview -->
         <section class="features">
+            <div class="section-intro">
+                <h2>How The Audit Works</h2>
+                <p>
+                    The system is built around a multi-agent research process designed to challenge the investment case from multiple angles.
+                </p>
+            </div>
+
             <div class="feature-item">
                 <h3>I. Automated Microeconomic Audits</h3>
                 <p>
-                    Target assets are fed directly into an AI processing cluster running 50 parallel analyst agents. They map narrow operational parameters, checking cost structures, asset footprints, and qualitative customer moats.
+                    Target assets are analyzed through a cluster of AI analyst agents that map operational quality, cost structure, asset footprint, customer behavior, and qualitative moat indicators.
                 </p>
             </div>
 
             <div class="feature-item">
                 <h3>II. The Anti-Moat Friction Panel</h3>
                 <p>
-                    To systematically target confirmation bias, a dedicated subset of our AI models act as synthetic short-sellers, stress-testing the asset against historical failure profiles of bankrupted monopolies.
+                    To reduce confirmation bias, dedicated adversarial agents stress-test the company against historical failure patterns, disruption risks, and weakening competitive advantages.
                 </p>
             </div>
 
             <div class="feature-item">
-                <h3>III. Multi-Tier AI Judicial Synthesis</h3>
+                <h3>III. Multi-Tier Investment Synthesis</h3>
                 <p>
-                    Sub-committee data feeds upward to a Supreme Council of 5 independent Warren Buffett AI models and a final Charlie Munger Arbitrator tasked with filtering the entire debate for human cognitive misjudgments.
+                    The system synthesizes competing arguments into a structured report focused on business quality, durability, management incentives, valuation risk, and cognitive bias.
                 </p>
-            </div>
-        </section>
-
-        <!-- The Final Deliverable Feature Section -->
-        <section class="report-section">
-            <h2>The Deliverable: Your Comprehensive Stock Audit Report</h2>
-
-            <p>
-                Every submission triggers an autonomous deep-dive analysis. You receive a structured, printable report detailing the exact stability of the business. Each report contains:
-            </p>
-
-            <div class="report-grid">
-                <div class="report-component">
-                    <strong>1. The Franchise Scorecard</strong>
-                    A cold, algorithmic rating on the company's share of mind, pricing elasticity, and moat durability.
-                </div>
-
-                <div class="report-component">
-                    <strong>2. The Deliberation Transcript</strong>
-                    The unedited argument between the 50 sub-committee AI analysts and the final judicial frameworks.
-                </div>
-
-                <div class="report-component">
-                    <strong>3. The Cognitive Bias Audit</strong>
-                    A dedicated review flagging any overoptimism, social proof, or incentive distortions present in the target company's executive communications.
-                </div>
             </div>
         </section>
 
         <!-- Deep Analysis Sample Section -->
         <section class="preview-box">
             <div class="preview-header">
-                AI Audit Log Excerpt: Case Analysis [Qualitative Infrastructure Review]
+                Sample Audit Log Excerpt
             </div>
 
             <div class="dialogue">
-                <span class="agent-name coke-agent">Sub-Committee AI Panel — Consumer Mind-Share</span>
-                “Target asset demonstrates a persistent consumer mind-share premium over a 15-year tracking window. Customer acquisition costs are trending downward relative to industry peers.”
+                <span class="agent-name coke-agent">Business Quality Panel</span>
+                “Target asset demonstrates persistent consumer mind-share strength over a multi-year tracking window. Customer acquisition costs appear favorable relative to several industry peers.”
             </div>
 
             <div class="dialogue">
-                <span class="agent-name bb-agent">Anti-Moat AI Panel — Structural Disruption Case</span>
-                “Counterpoint. Historical data from corporate transitions indicates that changes in distribution infrastructure threaten this premium. Current capital expenditures are misaligned with shifting consumer friction points.”
+                <span class="agent-name bb-agent">Anti-Moat Risk Panel</span>
+                “Counterpoint. Distribution changes and shifting consumer friction points may threaten the durability of this advantage. The current reinvestment profile should be reviewed carefully.”
             </div>
 
             <div class="dialogue">
-                <span class="agent-name wb-agent">Judicial Munger Arbitrator</span>
-                “Flagging potential Incentive Super-Response Bias in the corporate executive filings. Proceeding to audit the relationship between management stock options and current capital re-investment schedules before logging final conviction scores.”
+                <span class="agent-name wb-agent">Final Synthesis Layer</span>
+                “Flagging possible incentive bias in management communications. Proceeding to review the relationship between executive compensation, capital allocation, and current growth assumptions.”
             </div>
         </section>
 
         <!-- Bottom Call to Action -->
         <section class="bottom-cta-container">
-            <h2>Audit Your Portfolio Infrastructure</h2>
+            <h2>Get 2 Free Stock Audits</h2>
 
             <div class="form-container">
+                <h2 class="form-title">Join The Private Beta</h2>
+
                 <form action="https://formspree.io/f/xnjkavaq" method="POST">
                     <input type="hidden" name="_subject" value="New Algorithmic Boardroom Signup">
 
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Enter email address" required>
-                        <button type="submit">Get Your Audit Reports</button>
+                        <input type="email" name="email" placeholder="Email address" required>
+                        <button type="submit">Join Beta</button>
                     </div>
                 </form>
 
                 <div class="form-footer">
-                    Secure your priority spot in our fundamental research beta loop. You will receive two free reports to pressure-test your portfolio.
+                    Enter your email to get early access and receive two free sample audit reports.
                 </div>
             </div>
         </section>
@@ -456,7 +525,7 @@
             <h3>Submit System Feedback</h3>
 
             <p>
-                Help us calibrate our AI models. Let us know what microeconomic metrics or historical business frameworks you want added to the boardroom cluster.
+                Help calibrate the beta. Tell us what investment metrics, red flags, or business frameworks you want included in future stock audits.
             </p>
 
             <form action="https://formspree.io/f/xnjkavaq" method="POST">
@@ -474,6 +543,7 @@
     </footer>
 
 </div>
+
 
 </body>
 </html>
