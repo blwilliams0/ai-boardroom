@@ -1,18 +1,25 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Algorithmic Boardroom - Quantitative Franchise Analysis</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%2314532d'/%3E%3Ctext x='50%25' y='57%25' font-family='Georgia, serif' font-size='60' font-weight='700' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'%3EB%3C/text%3E%3C/svg%3E">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjE1IiBmaWxsPSIjMTQ1MzJkIi8+PHRleHQgeD0iNTAlIiB5PSI1NyUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSI2MCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+QjwvdGV4dD48L3N2Zz4=">
+
     <style>
         :root {
-            --bg-light: #fdfbf7;      /* Warm, premium archival paper tone */
-            --text-dark: #1e293b;     /* Deep charcoal for comfortable reading */
-            --accent-green: #14532d;  /* Deep forest green for traditional finance */
-            --card-bg: #ffffff;       /* Pure white for data containers */
-            --border-color: #e2e8f0;  /* Subtle grey for structured borders */
-            --text-muted: #64748b;    /* Muted grey for auxiliary text */
+            --bg-light: #fdfbf7;
+            --text-dark: #1e293b;
+            --accent-green: #14532d;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -30,7 +37,6 @@
             padding: 4rem 2rem;
         }
 
-        /* Publication-Style Header */
         header {
             text-align: center;
             border-bottom: 2px solid var(--accent-green);
@@ -55,7 +61,6 @@
             font-style: italic;
         }
 
-        /* Serious, Standard Form Styling */
         .form-container {
             background-color: var(--card-bg);
             padding: 2.5rem;
@@ -71,18 +76,23 @@
             gap: 0.75rem;
         }
 
-        input[type="email"], textarea {
+        input[type="email"],
+        textarea {
             flex: 1;
+            width: 100%;
             padding: 0.75rem 1rem;
             border-radius: 4px;
             border: 1px solid #cbd5e1;
             background-color: #fff;
             color: var(--text-dark);
             font-size: 1rem;
+            font-family: inherit;
         }
 
-        input[type="email"]:focus, textarea:focus {
+        input[type="email"]:focus,
+        textarea:focus {
             outline: 2px solid var(--accent-green);
+            outline-offset: 2px;
         }
 
         button {
@@ -95,6 +105,7 @@
             font-size: 1rem;
             cursor: pointer;
             transition: background 0.2s;
+            white-space: nowrap;
         }
 
         button:hover {
@@ -108,7 +119,6 @@
             text-align: center;
         }
 
-        /* Methodical Layout */
         .features {
             margin-top: 4rem;
         }
@@ -131,7 +141,6 @@
             font-size: 1rem;
         }
 
-        /* The Final Deliverable Section */
         .report-section {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -167,38 +176,6 @@
             margin-bottom: 0.25rem;
         }
 
-        /* Bottom Sign-Up Section Styling */
-        .bottom-cta-container {
-            margin: 4rem auto;
-            border-top: 2px solid var(--accent-green);
-            padding-top: 3rem;
-        }
-
-        .bottom-cta-container h2 {
-            font-family: Georgia, serif;
-            font-size: 1.6rem;
-            color: var(--accent-green);
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Feedback Section */
-        .feedback-section {
-            background-color: #f1f5f9;
-            border: 1px dashed var(--border-color);
-            padding: 2rem;
-            margin-top: 4rem;
-            border-radius: 4px;
-        }
-        
-        .feedback-section h3 {
-            margin-top: 0;
-            font-family: Georgia, serif;
-            color: var(--accent-green);
-        }
-
-        /* Deep Analysis Sample Section */
         .preview-box {
             background-color: var(--card-bg);
             border-radius: 4px;
@@ -239,61 +216,232 @@
             letter-spacing: 0.02em;
             margin-bottom: 0.25rem;
         }
-        
-        .coke-agent { color: #b91c1c; }
-        .bb-agent { color: #475569; }
-        .wb-agent { color: var(--accent-green); }
+
+        .coke-agent {
+            color: #b91c1c;
+        }
+
+        .bb-agent {
+            color: #475569;
+        }
+
+        .wb-agent {
+            color: var(--accent-green);
+        }
+
+        .bottom-cta-container {
+            margin: 4rem auto;
+            border-top: 2px solid var(--accent-green);
+            padding-top: 3rem;
+        }
+
+        .bottom-cta-container h2 {
+            font-family: Georgia, serif;
+            font-size: 1.6rem;
+            color: var(--accent-green);
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-section {
+            background-color: #f1f5f9;
+            border: 1px dashed var(--border-color);
+            padding: 2rem;
+            margin-top: 4rem;
+            border-radius: 4px;
+        }
+
+        .feedback-section h3 {
+            margin-top: 0;
+            font-family: Georgia, serif;
+            color: var(--accent-green);
+        }
+
+        .feedback-section button {
+            margin-top: 1rem;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
 
         @media (max-width: 600px) {
+            .container {
+                padding: 2.5rem 1rem;
+            }
+
             .form-group {
                 flex-direction: column;
             }
+
             h1 {
                 font-size: 2rem;
+            }
+
+            .form-container,
+            .report-section,
+            .preview-box,
+            .feedback-section {
+                padding: 1.5rem;
+            }
+
+            button {
+                width: 100%;
             }
         }
     </style>
 </head>
-<body>
 
+<body>
     <div class="container">
+
         <!-- Editorial Header -->
         <header>
             <h1>The Algorithmic Boardroom</h1>
-            <p class="subtitle">Submit a single ticker. Get a comprehensive, unbiased Boardroom Audit Report powered by a two-tier AI multi-agent architecture trained on strict fundamental value investing principles.</p>
-            
+
+            <p class="subtitle">
+                Submit a single ticker. Get a comprehensive, unbiased Boardroom Audit Report powered by a two-tier AI multi-agent architecture trained on strict fundamental value investing principles.
+            </p>
+
             <!-- Top Email Form -->
             <div class="form-container">
-                <form action="https://formspree.io" method="POST">
+                <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                    <input type="hidden" name="_subject" value="New Algorithmic Boardroom Signup">
+
                     <div class="form-group">
                         <input type="email" name="email" placeholder="Enter email address" required>
                         <button type="submit">Get Your Audit Reports</button>
                     </div>
                 </form>
+
                 <div class="form-footer">
-                    Accepting applications for our private AI-driven beta. You will receive **two free stock audit reports**.
+                    Accepting applications for our private AI-driven beta. You will receive two free stock audit reports.
                 </div>
             </div>
         </header>
 
         <!-- Methodical Framework Overview -->
-        <div class="features">
-            <div class="feature-item">
-                <h3>I. Automated Microeconomic Audits</h3>
-                <p>Target assets are fed directly into an AI processing cluster running 50 parallel analyst agents. They map narrow operational parameters, checking cost structures, asset footprints, and qualitative customer moats.</p>
-            </div>
-            
-            <div class="feature-item">
-                <h3>II. The Anti-Moat Friction Panel</h3>
-                <p>To systematically target confirmation bias, a dedicated subset of our AI models act as synthetic short-sellers, stress-testing the asset against historical failure profiles of bankrupted monopolies.</p>
-            </div>
+        <main>
+            <section class="features">
+                <div class="feature-item">
+                    <h3>I. Automated Microeconomic Audits</h3>
+                    <p>
+                        Target assets are fed directly into an AI processing cluster running 50 parallel analyst agents. They map narrow operational parameters, checking cost structures, asset footprints, and qualitative customer moats.
+                    </p>
+                </div>
 
-            <div class="feature-item">
-                <h3>III. Multi-Tier AI Judicial Synthesis</h3>
-                <p>Sub-committee data feeds upward to a Supreme Council of 5 independent Warren Buffett AI models and a final Charlie Munger Arbitrator tasked with filtering the entire debate for human cognitive misjudgments.</p>
-            </div>
-        </div>
+                <div class="feature-item">
+                    <h3>II. The Anti-Moat Friction Panel</h3>
+                    <p>
+                        To systematically target confirmation bias, a dedicated subset of our AI models act as synthetic short-sellers, stress-testing the asset against historical failure profiles of bankrupted monopolies.
+                    </p>
+                </div>
 
-        <!-- The Final Deliverable Feature Section -->
-        <div class="report-section">
-            <h2>The Deliverable: Your Comprehensive Stock Audit Report</h2>
+                <div class="feature-item">
+                    <h3>III. Multi-Tier AI Judicial Synthesis</h3>
+                    <p>
+                        Sub-committee data feeds upward to a Supreme Council of 5 independent Warren Buffett AI models and a final Charlie Munger Arbitrator tasked with filtering the entire debate for human cognitive misjudgments.
+                    </p>
+                </div>
+            </section>
+
+            <!-- The Final Deliverable Feature Section -->
+            <section class="report-section">
+                <h2>The Deliverable: Your Comprehensive Stock Audit Report</h2>
+
+                <p>
+                    Every submission triggers an autonomous deep-dive analysis. You receive a structured, printable report detailing the exact stability of the business. Each report contains:
+                </p>
+
+                <div class="report-grid">
+                    <div class="report-component">
+                        <strong>1. The Franchise Scorecard</strong>
+                        A cold, algorithmic rating on the company's share of mind, pricing elasticity, and moat durability.
+                    </div>
+
+                    <div class="report-component">
+                        <strong>2. The Deliberation Transcript</strong>
+                        The unedited argument between the 50 sub-committee AI analysts and the final judicial frameworks.
+                    </div>
+
+                    <div class="report-component">
+                        <strong>3. The Cognitive Bias Audit</strong>
+                        A dedicated review flagging any overoptimism, social proof, or incentive distortions present in the target company's executive communications.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deep Analysis Sample Section -->
+            <section class="preview-box">
+                <div class="preview-header">
+                    AI Audit Log Excerpt: Case Analysis [Qualitative Infrastructure Review]
+                </div>
+
+                <div class="dialogue">
+                    <span class="agent-name coke-agent">Sub-Committee AI Panel — Consumer Mind-Share</span>
+                    “Target asset demonstrates a persistent consumer mind-share premium over a 15-year tracking window. Customer acquisition costs are trending downward relative to industry peers.”
+                </div>
+
+                <div class="dialogue">
+                    <span class="agent-name bb-agent">Anti-Moat AI Panel — Structural Disruption Case</span>
+                    “Counterpoint. Historical data from corporate transitions indicates that changes in distribution infrastructure threaten this premium. Current capital expenditures are misaligned with shifting consumer friction points.”
+                </div>
+
+                <div class="dialogue">
+                    <span class="agent-name wb-agent">Judicial Munger Arbitrator</span>
+                    “Flagging potential Incentive Super-Response Bias in the corporate executive filings. Proceeding to audit the relationship between management stock options and current capital re-investment schedules before logging final conviction scores.”
+                </div>
+            </section>
+
+            <!-- Bottom Call to Action -->
+            <section class="bottom-cta-container">
+                <h2>Audit Your Portfolio Infrastructure</h2>
+
+                <div class="form-container">
+                    <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                        <input type="hidden" name="_subject" value="New Algorithmic Boardroom Signup">
+
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Enter email address" required>
+                            <button type="submit">Get Your Audit Reports</button>
+                        </div>
+                    </form>
+
+                    <div class="form-footer">
+                        Secure your priority spot in our fundamental research beta loop. You will receive two free reports to pressure-test your portfolio.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feedback Section -->
+            <section class="feedback-section">
+                <h3>Submit System Feedback</h3>
+
+                <p>
+                    Help us calibrate our AI models. Let us know what microeconomic metrics or historical business frameworks you want added to the boardroom cluster.
+                </p>
+
+                <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                    <input type="hidden" name="_subject" value="New Algorithmic Boardroom Feedback">
+
+                    <textarea name="feedback" rows="5" placeholder="Submit feedback" required></textarea>
+
+                    <button type="submit">Submit Feedback</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            The Algorithmic Boardroom · Fundamental Research Beta
+        </footer>
+
+    </div>
+</body>
+</html>
+```
