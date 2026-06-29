@@ -42,21 +42,21 @@
     .topbar {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         padding: 0.8rem 0.25rem 1.25rem 0.25rem;
     }
 
-    .menu-icon,
-    .empty-icon {
-        width: 42px;
-        height: 42px;
+    .brand-link {
+        text-decoration: none;
+        color: inherit;
         border-radius: 999px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--text);
-        font-size: 1.7rem;
-        line-height: 1;
+        padding: 0.35rem 0.65rem;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .brand-link:hover {
+        background: var(--green-soft);
+        transform: translateY(-1px);
     }
 
     .brand {
@@ -550,7 +550,7 @@
         }
     }
 </style>
-</head> <body> <div class="page"> <nav class="topbar" aria-label="Top navigation"> <div class="menu-icon" aria-hidden="true">☰</div> <div class="brand"> <span class="brand-main">AIB</span> <span class="brand-beta">BETA</span> </div> <div class="empty-icon" aria-hidden="true">·</div> </nav>
+</head> <body> <div class="page"> <nav class="topbar" aria-label="Top navigation"> <a class="brand-link" href="https://algboardroom.com/" aria-label="The Algorithmic Boardroom home"> <div class="brand"> <span class="brand-main">AIB</span> <span class="brand-beta">BETA</span> </div> </a> </nav>
     <section class="hero">
         <div class="spark" aria-hidden="true">
             <svg viewBox="0 0 120 120" fill="none">
