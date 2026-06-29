@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Algorithmic Boardroom - Free AI Stock Audits</title>
-
-
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>The Algorithmic Boardroom - Free AI Stock Audits</title>
 <!-- Browser Tab Icon / Favicon -->
-<link rel="icon" type="image/x-icon" href="./favicon.ico?v=7">
-<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?v=7">
-<link rel="icon" type="image/png" href="./algboardroom-logo.png?v=7">
-<link rel="apple-touch-icon" href="./algboardroom-logo.png?v=7">
+<link rel="icon" type="image/png" href="./algboardroom-logo.png?v=8">
+<link rel="apple-touch-icon" href="./algboardroom-logo.png?v=8">
 
 <style>
     :root {
@@ -22,6 +12,7 @@
         --card-bg: #ffffff;
         --border-color: #e2e8f0;
         --text-muted: #64748b;
+        --sand: #d6b56d;
     }
 
     * {
@@ -54,37 +45,29 @@
         margin-bottom: 4rem;
     }
 
-    .site-logo {
-        width: 112px;
-        height: 112px;
-        object-fit: cover;
-        border-radius: 22px;
-        margin: 0 auto 1.5rem auto;
-        display: block;
-        box-shadow: 0 10px 28px rgba(20, 83, 45, 0.22);
-    }
-    .fair-value-note {
-        background-color: #ffffff;
-        border: 1px solid var(--border-color);
-        border-left: 4px solid var(--accent-green);
-        padding: 1.75rem 2rem;
-        margin: 3rem 0;
-        border-radius: 6px;
-        }
-        
-    .fair-value-note h2 {
-        font-family: Georgia, serif;
+    .brand-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        margin: 0 auto 1.4rem auto;
+        padding: 0.45rem 0.8rem;
+        border: 1px solid rgba(20, 83, 45, 0.22);
+        border-radius: 999px;
+        background-color: rgba(255, 255, 255, 0.65);
         color: var(--accent-green);
-        font-size: 1.45rem;
-        margin: 0 0 0.75rem 0;
-        }
-        
-    .fair-value-note p {
-        margin: 0;
-        color: var(--text-dark);
-        font-size: 1rem;
-        }
-    
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .badge-mark {
+        font-family: Georgia, serif;
+        color: var(--sand);
+        letter-spacing: 0.04em;
+    }
+
     .eyebrow {
         color: var(--accent-green);
         font-weight: 700;
@@ -96,7 +79,7 @@
 
     h1 {
         font-family: Georgia, serif;
-        font-size: 2.75rem;
+        font-size: 2.7rem;
         font-weight: 700;
         color: var(--accent-green);
         margin: 0 0 1.25rem 0;
@@ -114,7 +97,7 @@
         max-width: 620px;
         margin: 0 auto 2.25rem auto;
         text-align: left;
-        background-color: rgba(255, 255, 255, 0.55);
+        background-color: rgba(255, 255, 255, 0.65);
         border: 1px solid var(--border-color);
         border-radius: 6px;
         padding: 1.25rem 1.5rem;
@@ -210,28 +193,6 @@
         margin: 0 auto;
     }
 
-    .features {
-        margin-top: 4rem;
-    }
-
-    .feature-item {
-        margin-bottom: 2.5rem;
-    }
-
-    .feature-item h3 {
-        font-family: Georgia, serif;
-        font-size: 1.3rem;
-        color: var(--accent-green);
-        margin-bottom: 0.5rem;
-        margin-top: 0;
-    }
-
-    .feature-item p {
-        color: var(--text-dark);
-        margin: 0;
-        font-size: 1rem;
-    }
-
     .report-section {
         background-color: var(--card-bg);
         border: 1px solid var(--border-color);
@@ -265,6 +226,50 @@
         display: block;
         color: var(--accent-green);
         margin-bottom: 0.25rem;
+    }
+
+    .fair-value-note {
+        background-color: #ffffff;
+        border: 1px solid var(--border-color);
+        border-left: 4px solid var(--sand);
+        padding: 1.75rem 2rem;
+        margin: 3rem 0 4rem 0;
+        border-radius: 6px;
+    }
+
+    .fair-value-note h2 {
+        font-family: Georgia, serif;
+        color: var(--accent-green);
+        font-size: 1.45rem;
+        margin: 0 0 0.75rem 0;
+    }
+
+    .fair-value-note p {
+        margin: 0;
+        color: var(--text-dark);
+        font-size: 1rem;
+    }
+
+    .features {
+        margin-top: 4rem;
+    }
+
+    .feature-item {
+        margin-bottom: 2.5rem;
+    }
+
+    .feature-item h3 {
+        font-family: Georgia, serif;
+        font-size: 1.3rem;
+        color: var(--accent-green);
+        margin-bottom: 0.5rem;
+        margin-top: 0;
+    }
+
+    .feature-item p {
+        color: var(--text-dark);
+        margin: 0;
+        font-size: 1rem;
     }
 
     .preview-box {
@@ -308,16 +313,16 @@
         margin-bottom: 0.25rem;
     }
 
-    .coke-agent {
-        color: #b91c1c;
+    .quality-agent {
+        color: var(--accent-green);
     }
 
-    .bb-agent {
+    .risk-agent {
         color: #475569;
     }
 
-    .wb-agent {
-        color: var(--accent-green);
+    .final-agent {
+        color: #8a6a24;
     }
 
     .bottom-cta-container {
@@ -367,25 +372,20 @@
             padding: 2.5rem 1rem;
         }
 
-        .site-logo {
-            width: 96px;
-            height: 96px;
-            border-radius: 18px;
-        }
-
         .form-group {
             flex-direction: column;
         }
 
         h1 {
-            font-size: 2.15rem;
+            font-size: 2.1rem;
         }
 
         .form-container,
         .report-section,
         .preview-box,
         .feedback-section,
-        .promise-list {
+        .promise-list,
+        .fair-value-note {
             padding: 1.5rem;
         }
 
@@ -394,30 +394,26 @@
         }
     }
 </style>
-
-
-</head>
-
-<body>
-    <div class="container">
-
-
-    <!-- Hero Section -->
+</head> <body> <div class="container">
+        <!-- Hero Section -->
     <header>
-        <img src="./algboardroom-logo.png?v=7" alt="The Algorithmic Boardroom logo" class="site-logo">
+        <div class="brand-badge">
+            <span class="badge-mark">AIB</span>
+            <span>Research Beta</span>
+        </div>
 
         <div class="eyebrow">Private beta now open</div>
 
-        <h1>Get a Free AI Stock Audit Before You Buy or Hold</h1>
+        <h1>Get a Second Opinion on Your Favorite Stock</h1>
 
         <p class="subtitle">
-            Join the early access list and receive two free sample stock reports showing business quality, moat risk, management incentives, valuation red flags, and possible cognitive-bias traps.
+            Join the early access list and receive two free AI-assisted stock audits focused on moat durability, management incentives, valuation risk, and thesis-breaking red flags.
         </p>
 
         <div class="promise-list">
-            <p><strong>What you get:</strong> two free AI-generated stock audit reports during the private beta.</p>
-            <p><strong>Built for:</strong> investors who want a clearer second opinion before buying, holding, or selling.</p>
-            <p><strong>Focus areas:</strong> moat durability, pricing power, management incentives, valuation risk, and red flags.</p>
+            <p><strong>What you get:</strong> two free sample stock audit reports during the private beta.</p>
+            <p><strong>Built for:</strong> long-term investors who want to pressure-test a thesis before buying, holding, or adding to a position.</p>
+            <p><strong>Focus areas:</strong> moat durability, pricing power, customer loyalty, management incentives, valuation risk, and red flags.</p>
         </div>
 
         <!-- Top Email Form -->
@@ -445,7 +441,7 @@
             <h2>What The Report Helps You Answer</h2>
 
             <p>
-                Most stock research focuses on price targets, headlines, or surface-level financials. The Algorithmic Boardroom is designed to pressure-test the actual business behind the ticker.
+                Most stock tools focus on price targets, headlines, or chart patterns. The Algorithmic Boardroom is designed to pressure-test the actual business behind a stock.
             </p>
 
             <div class="report-grid">
@@ -466,58 +462,65 @@
             </div>
         </section>
 
-        <section class="fair-value-note"> <h2>Coming Next: Approximate Fair Value Ranges</h2> <p> The current beta focuses on business quality, moat durability, management incentives, valuation risk, and red flags. Future versions will add approximate fair value ranges designed to help investors compare the current market price against estimated intrinsic value. </p> </section>
-        
+        <!-- Future Fair Value Section -->
+        <section class="fair-value-note">
+            <h2>Coming Next: Approximate Fair Value Ranges</h2>
+
+            <p>
+                The current beta focuses on business quality, moat durability, management incentives, valuation risk, and red flags. Future versions will add approximate fair value ranges designed to help investors compare the current market price against estimated intrinsic value.
+            </p>
+        </section>
+
         <!-- Methodical Framework Overview -->
         <section class="features">
             <div class="section-intro">
                 <h2>How The Audit Works</h2>
                 <p>
-                    The system is built around a multi-agent research process designed to challenge the investment case from multiple angles.
+                    The system is built around a research process designed to challenge the investment case from multiple angles.
                 </p>
             </div>
 
             <div class="feature-item">
-                <h3>I. Automated Microeconomic Audits</h3>
+                <h3>I. Business Quality Review</h3>
                 <p>
-                    Target assets are analyzed through a cluster of AI analyst agents that map operational quality, cost structure, asset footprint, customer behavior, and qualitative moat indicators.
+                    The audit reviews operational quality, cost structure, customer behavior, pricing power, and qualitative moat indicators.
                 </p>
             </div>
 
             <div class="feature-item">
-                <h3>II. The Anti-Moat Friction Panel</h3>
+                <h3>II. Thesis Stress Test</h3>
                 <p>
-                    To reduce confirmation bias, dedicated adversarial agents stress-test the company against historical failure patterns, disruption risks, and weakening competitive advantages.
+                    The report looks for reasons the bullish case could be wrong, including disruption risk, weakening customer loyalty, poor reinvestment, and hidden fragility.
                 </p>
             </div>
 
             <div class="feature-item">
-                <h3>III. Multi-Tier Investment Synthesis</h3>
+                <h3>III. Final Research Summary</h3>
                 <p>
-                    The system synthesizes competing arguments into a structured report focused on business quality, durability, management incentives, valuation risk, and cognitive bias.
+                    The result is a structured summary focused on business durability, management incentives, valuation risk, and key questions an investor should investigate further.
                 </p>
             </div>
         </section>
 
-        <!-- Deep Analysis Sample Section -->
+        <!-- Sample Section -->
         <section class="preview-box">
             <div class="preview-header">
-                Sample Audit Log Excerpt
+                Sample Audit Excerpt
             </div>
 
             <div class="dialogue">
-                <span class="agent-name coke-agent">Business Quality Panel</span>
-                “Target asset demonstrates persistent consumer mind-share strength over a multi-year tracking window. Customer acquisition costs appear favorable relative to several industry peers.”
+                <span class="agent-name quality-agent">Business Quality Review</span>
+                “The company appears to have durable customer recognition and favorable pricing power relative to several competitors.”
             </div>
 
             <div class="dialogue">
-                <span class="agent-name bb-agent">Anti-Moat Risk Panel</span>
-                “Counterpoint. Distribution changes and shifting consumer friction points may threaten the durability of this advantage. The current reinvestment profile should be reviewed carefully.”
+                <span class="agent-name risk-agent">Thesis Stress Test</span>
+                “The main risk is whether distribution changes or customer switching behavior could weaken the advantage faster than current investors expect.”
             </div>
 
             <div class="dialogue">
-                <span class="agent-name wb-agent">Final Synthesis Layer</span>
-                “Flagging possible incentive bias in management communications. Proceeding to review the relationship between executive compensation, capital allocation, and current growth assumptions.”
+                <span class="agent-name final-agent">Research Summary</span>
+                “The business deserves further study, but the investment case depends heavily on whether the moat remains intact while management continues reinvesting capital efficiently.”
             </div>
         </section>
 
@@ -562,11 +565,8 @@
     </main>
 
     <footer>
-        The Algorithmic Boardroom · Fundamental Research Beta
+        AIB Research Beta · The Algorithmic Boardroom
     </footer>
 
 </div>
-
-
-</body>
-</html>
+</body> </html>
