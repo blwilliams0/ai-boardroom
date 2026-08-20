@@ -1,748 +1,1038 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>The Algorithmic Boardroom - Free AI Stock Audits</title>
-<link rel="icon" type="image/png" href="./algboardroom-logo.png?v=9">
-<link rel="apple-touch-icon" href="./algboardroom-logo.png?v=9">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Algorithmic Boardroom - AI Stock Analysis Beta</title>
+
+    <link rel="icon" type="image/png" href="./algboardroom-logo.png?v=10">
+    <link rel="apple-touch-icon" href="./algboardroom-logo.png?v=10">
+
+    <style>
+        :root {
+            --bg: #f6f7f5;
+            --panel: #ffffff;
+            --text: #2f302d;
+            --muted: #6f746d;
+            --green: #14532d;
+            --green-soft: #e8f1eb;
+            --green-hover: #166534;
+            --sand: #d6b56d;
+            --border: #e1e5de;
+            --shadow: 0 18px 45px rgba(20, 83, 45, 0.08);
+            --radius: 28px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.55;
+        }
+
+        a {
+            color: inherit;
+        }
 
-<style>
-    :root {
-        --bg: #f6f7f5;
-        --panel: #ffffff;
-        --text: #2f302d;
-        --muted: #6f746d;
-        --green: #14532d;
-        --green-soft: #e8f1eb;
-        --green-hover: #166534;
-        --sand: #d6b56d;
-        --border: #e1e5de;
-        --shadow: 0 18px 45px rgba(20, 83, 45, 0.08);
-        --radius: 28px;
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        line-height: 1.55;
-    }
-
-    .page {
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 1.25rem;
-    }
-
-    .topbar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.8rem 0.25rem 1.25rem 0.25rem;
-    }
-
-    .brand-link {
-        text-decoration: none;
-        color: inherit;
-        border-radius: 999px;
-        padding: 0.35rem 0.65rem;
-        transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .brand-link:hover {
-        background: var(--green-soft);
-        transform: translateY(-1px);
-    }
-
-    .brand {
-        display: flex;
-        align-items: baseline;
-        justify-content: center;
-        gap: 0.35rem;
-        font-weight: 800;
-        font-size: 1.45rem;
-        letter-spacing: -0.04em;
-    }
-
-    .brand-main {
-        color: var(--text);
-    }
-
-    .brand-beta {
-        color: var(--green);
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
-        font-weight: 800;
-    }
-
-    .hero {
-        background: linear-gradient(180deg, #ffffff 0%, #f8faf7 100%);
-        border: 1px solid var(--border);
-        border-radius: 34px;
-        padding: 4rem 1.5rem 3rem 1.5rem;
-        box-shadow: var(--shadow);
-        text-align: center;
-        overflow: hidden;
-    }
-
-    .spark {
-        width: 96px;
-        height: 96px;
-        margin: 0 auto 1.35rem auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .spark svg {
-        width: 86px;
-        height: 86px;
-    }
-
-    .badge {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.45rem;
-        margin-bottom: 1.15rem;
-        padding: 0.45rem 0.85rem;
-        border: 1px solid rgba(20, 83, 45, 0.18);
-        border-radius: 999px;
-        background: var(--green-soft);
-        color: var(--green);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.07em;
-        text-transform: uppercase;
-    }
-
-    .badge-mark {
-        font-family: Georgia, serif;
-        color: #8a6a24;
-        letter-spacing: 0.03em;
-    }
-
-    h1 {
-        font-size: clamp(2.25rem, 7vw, 4.75rem);
-        line-height: 1.05;
-        letter-spacing: -0.055em;
-        margin: 0 auto 1.2rem auto;
-        max-width: 790px;
-        font-weight: 800;
-        color: var(--text);
-    }
-
-    .subtitle {
-        max-width: 680px;
-        margin: 0 auto 2rem auto;
-        font-size: clamp(1.03rem, 2.4vw, 1.25rem);
-        color: var(--muted);
-    }
-
-    .hero-form {
-        max-width: 650px;
-        margin: 0 auto;
-    }
-
-    .email-pill {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        padding: 0.55rem;
-        border-radius: 999px;
-        background: #ffffff;
-        border: 2px solid rgba(20, 83, 45, 0.35);
-        box-shadow: 0 10px 25px rgba(20, 83, 45, 0.08);
-    }
-
-    .email-pill-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 999px;
-        background: var(--green-soft);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--green);
-        flex: 0 0 auto;
-        font-size: 1.15rem;
-    }
-
-    .email-pill input {
-        width: 100%;
-        border: none;
-        outline: none;
-        background: transparent;
-        font-size: 1.05rem;
-        color: var(--text);
-        font-family: inherit;
-        min-width: 0;
-    }
-
-    .email-pill input::placeholder {
-        color: #8d938a;
-    }
-
-    .email-pill button {
-        border: none;
-        background: var(--green);
-        color: #ffffff;
-        border-radius: 999px;
-        padding: 0.9rem 1.25rem;
-        font-weight: 800;
-        font-size: 0.95rem;
-        cursor: pointer;
-        white-space: nowrap;
-        font-family: inherit;
-        transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .email-pill button:hover {
-        background: var(--green-hover);
-        transform: translateY(-1px);
-    }
-
-    .trust-note {
-        margin: 1rem auto 0 auto;
-        color: var(--muted);
-        font-size: 0.86rem;
-        max-width: 560px;
-    }
-
-    .quick-cards {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-        margin: 1.5rem auto 0 auto;
-        max-width: 760px;
-    }
-
-    .quick-card {
-        background: #ffffff;
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        padding: 1.2rem;
-        box-shadow: 0 14px 32px rgba(20, 83, 45, 0.06);
-        text-align: left;
-    }
-
-    .quick-card-label {
-        color: var(--green);
-        font-size: 0.8rem;
-        font-weight: 800;
-        margin-bottom: 0.35rem;
-    }
-
-    .quick-card p {
-        margin: 0;
-        color: var(--text);
-        font-size: 0.95rem;
-    }
-
-    .section {
-        margin: 4.5rem 0;
-    }
-
-    .section-header {
-        text-align: center;
-        margin-bottom: 1.7rem;
-    }
-
-    .section-header h2 {
-        font-size: clamp(1.8rem, 4vw, 2.6rem);
-        line-height: 1.1;
-        letter-spacing: -0.045em;
-        margin: 0 0 0.75rem 0;
-        color: var(--text);
-    }
-
-    .section-header p {
-        margin: 0 auto;
-        max-width: 650px;
-        color: var(--muted);
-        font-size: 1rem;
-    }
-
-    .white-panel {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 2rem;
-        box-shadow: var(--shadow);
-    }
-
-    .answer-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-        margin-top: 1.5rem;
-    }
-
-    .answer-card {
-        background: #f9faf8;
-        border: 1px solid var(--border);
-        border-radius: 22px;
-        padding: 1.25rem;
-    }
-
-    .answer-card strong {
-        display: block;
-        color: var(--green);
-        margin-bottom: 0.35rem;
-        font-size: 0.98rem;
-    }
-
-    .answer-card span {
-        color: var(--muted);
-        font-size: 0.94rem;
-    }
-
-    .steps {
-        display: grid;
-        gap: 1rem;
-    }
-
-    .step {
-        display: grid;
-        grid-template-columns: 52px 1fr;
-        gap: 1rem;
-        align-items: start;
-        background: #ffffff;
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        padding: 1.35rem;
-        box-shadow: 0 12px 30px rgba(20, 83, 45, 0.05);
-    }
-
-    .step-number {
-        width: 52px;
-        height: 52px;
-        border-radius: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--green-soft);
-        color: var(--green);
-        font-weight: 900;
-        font-family: Georgia, serif;
-        font-size: 1.15rem;
-    }
-
-    .step h3 {
-        margin: 0 0 0.35rem 0;
-        font-size: 1.15rem;
-        color: var(--text);
-    }
-
-    .step p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.98rem;
-    }
-
-    .sample-card {
-        background: #ffffff;
-        border: 1px solid var(--border);
-        border-radius: 30px;
-        padding: 1.5rem;
-        box-shadow: var(--shadow);
-    }
-
-    .sample-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid var(--border);
-        margin-bottom: 1rem;
-    }
-
-    .sample-top strong {
-        color: var(--text);
-        font-size: 1rem;
-    }
-
-    .sample-pill {
-        background: var(--green-soft);
-        color: var(--green);
-        border-radius: 999px;
-        padding: 0.35rem 0.7rem;
-        font-size: 0.78rem;
-        font-weight: 800;
-        white-space: nowrap;
-    }
-
-    .sample-row {
-        padding: 1rem 0;
-        border-bottom: 1px solid var(--border);
-    }
-
-    .sample-row:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-
-    .sample-row span {
-        display: block;
-        color: var(--green);
-        font-size: 0.78rem;
-        font-weight: 900;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        margin-bottom: 0.35rem;
-    }
-
-    .sample-row p {
-        margin: 0;
-        color: var(--text);
-        font-size: 0.98rem;
-    }
-
-    .coming-next {
-        background: #ffffff;
-        border: 1px solid var(--border);
-        border-left: 5px solid var(--sand);
-        border-radius: 24px;
-        padding: 1.6rem;
-        box-shadow: 0 12px 30px rgba(20, 83, 45, 0.05);
-    }
-
-    .coming-next h2 {
-        font-family: Georgia, serif;
-        color: var(--green);
-        margin: 0 0 0.7rem 0;
-        font-size: 1.45rem;
-    }
-
-    .coming-next p {
-        margin: 0;
-        color: var(--muted);
-    }
-
-    .bottom-cta {
-        background: linear-gradient(180deg, #ffffff 0%, #f7faf6 100%);
-        border: 1px solid var(--border);
-        border-radius: 34px;
-        padding: 2.5rem 1.5rem;
-        box-shadow: var(--shadow);
-        text-align: center;
-    }
-
-    .bottom-cta h2 {
-        font-size: clamp(1.8rem, 4vw, 2.6rem);
-        line-height: 1.1;
-        letter-spacing: -0.045em;
-        margin: 0 0 1rem 0;
-    }
-
-    .feedback-section {
-        background: #edf1ed;
-        border: 1px dashed #cfd7cf;
-        border-radius: 24px;
-        padding: 1.5rem;
-    }
-
-    .feedback-section h3 {
-        margin: 0 0 0.5rem 0;
-        color: var(--green);
-        font-family: Georgia, serif;
-        font-size: 1.35rem;
-    }
-
-    .feedback-section p {
-        color: var(--muted);
-        margin: 0 0 1rem 0;
-    }
-
-    textarea {
-        width: 100%;
-        min-height: 130px;
-        resize: vertical;
-        border-radius: 18px;
-        border: 1px solid #cbd5e1;
-        padding: 1rem;
-        font-size: 1rem;
-        font-family: inherit;
-        color: var(--text);
-        outline: none;
-    }
-
-    textarea:focus {
-        border-color: var(--green);
-        box-shadow: 0 0 0 3px rgba(20, 83, 45, 0.12);
-    }
-
-    .feedback-section button {
-        margin-top: 1rem;
-        border: none;
-        background: var(--green);
-        color: #ffffff;
-        border-radius: 999px;
-        padding: 0.9rem 1.2rem;
-        font-weight: 800;
-        cursor: pointer;
-        font-family: inherit;
-    }
-
-    footer {
-        margin: 3rem 0 1rem 0;
-        text-align: center;
-        color: var(--muted);
-        font-size: 0.85rem;
-    }
-
-    @media (max-width: 760px) {
         .page {
-            padding: 1rem;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 1.25rem;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 0.25rem 1.25rem 0.25rem;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.35rem;
+            font-weight: 800;
+            font-size: 1.45rem;
+            letter-spacing: -0.04em;
+            text-decoration: none;
+        }
+
+        .brand-main {
+            color: var(--text);
+        }
+
+        .brand-beta {
+            color: var(--green);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            font-weight: 800;
+        }
+
+        .topbar-link {
+            text-decoration: none;
+            border: 1px solid rgba(20, 83, 45, 0.18);
+            background: #ffffff;
+            color: var(--green);
+            border-radius: 999px;
+            padding: 0.55rem 0.85rem;
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .topbar-spacer {
+            width: 112px;
         }
 
         .hero {
-            padding: 3rem 1.1rem 2.5rem 1.1rem;
-            border-radius: 30px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8faf7 100%);
+            border: 1px solid var(--border);
+            border-radius: 34px;
+            padding: 4rem 1.5rem 3rem 1.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .spark {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 1.35rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spark svg {
+            width: 86px;
+            height: 86px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            margin-bottom: 1.15rem;
+            padding: 0.45rem 0.85rem;
+            border: 1px solid rgba(20, 83, 45, 0.18);
+            border-radius: 999px;
+            background: var(--green-soft);
+            color: var(--green);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .badge-mark {
+            font-family: Georgia, serif;
+            color: #8a6a24;
+            letter-spacing: 0.03em;
+        }
+
+        h1 {
+            font-size: clamp(2.25rem, 7vw, 4.75rem);
+            line-height: 1.05;
+            letter-spacing: -0.055em;
+            margin: 0 auto 1.2rem auto;
+            max-width: 820px;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .subtitle {
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            font-size: clamp(1.03rem, 2.4vw, 1.25rem);
+            color: var(--muted);
+        }
+
+        .hero-form {
+            max-width: 690px;
+            margin: 0 auto;
         }
 
         .email-pill {
-            border-radius: 28px;
-            align-items: stretch;
-            flex-wrap: wrap;
-            padding: 0.65rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.55rem;
+            border-radius: 999px;
+            background: #ffffff;
+            border: 2px solid rgba(20, 83, 45, 0.35);
+            box-shadow: 0 10px 25px rgba(20, 83, 45, 0.08);
         }
 
         .email-pill-icon {
-            display: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            background: var(--green-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            flex: 0 0 auto;
+            font-size: 1.15rem;
         }
 
         .email-pill input {
-            flex: 1 1 100%;
-            padding: 0.85rem 0.75rem;
-            text-align: center;
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 1.05rem;
+            color: var(--text);
+            font-family: inherit;
+            min-width: 0;
         }
 
-        .email-pill button {
+        .email-pill input::placeholder {
+            color: #8d938a;
+        }
+
+        .email-pill button,
+        .primary-button {
+            border: none;
+            background: var(--green);
+            color: #ffffff;
+            border-radius: 999px;
+            padding: 0.9rem 1.25rem;
+            font-weight: 800;
+            font-size: 0.95rem;
+            cursor: pointer;
+            white-space: nowrap;
+            font-family: inherit;
+            transition: background 0.2s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .email-pill button:hover,
+        .primary-button:hover {
+            background: var(--green-hover);
+            transform: translateY(-1px);
+        }
+
+        .optional-questions {
+            max-width: 690px;
+            margin: 0.9rem auto 0 auto;
+            text-align: left;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 0.8rem 1rem;
+        }
+
+        .optional-questions summary {
+            cursor: pointer;
+            color: var(--green);
+            font-size: 0.9rem;
+            font-weight: 800;
+        }
+
+        .field-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .field {
+            display: grid;
+            gap: 0.35rem;
+        }
+
+        .field label {
+            font-size: 0.78rem;
+            color: var(--muted);
+            font-weight: 800;
+        }
+
+        .field select,
+        .field input {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 14px;
+            padding: 0.75rem 0.85rem;
+            background: #ffffff;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .trust-note {
+            margin: 1rem auto 0 auto;
+            color: var(--muted);
+            font-size: 0.86rem;
+            max-width: 600px;
+        }
+
+        .quick-cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin: 1.5rem auto 0 auto;
+            max-width: 800px;
+        }
+
+        .quick-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 1.2rem;
+            box-shadow: 0 14px 32px rgba(20, 83, 45, 0.06);
+            text-align: left;
+        }
+
+        .quick-card-label {
+            color: var(--green);
+            font-size: 0.8rem;
+            font-weight: 800;
+            margin-bottom: 0.35rem;
+        }
+
+        .quick-card p {
+            margin: 0;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .section {
+            margin: 4.5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 1.7rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            line-height: 1.1;
+            letter-spacing: -0.045em;
+            margin: 0 0 0.75rem 0;
+            color: var(--text);
+        }
+
+        .section-header p {
+            margin: 0 auto;
+            max-width: 680px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .white-panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .answer-grid,
+        .difference-grid,
+        .vote-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .answer-card,
+        .difference-card,
+        .vote-card {
+            background: #f9faf8;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 1.25rem;
+        }
+
+        .answer-card strong,
+        .difference-card strong,
+        .vote-card strong {
+            display: block;
+            color: var(--green);
+            margin-bottom: 0.35rem;
+            font-size: 0.98rem;
+        }
+
+        .answer-card span,
+        .difference-card span,
+        .vote-card span {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .vote-card form {
+            margin-top: 1rem;
+        }
+
+        .vote-card button {
+            border: 1px solid rgba(20, 83, 45, 0.22);
+            background: #ffffff;
+            color: var(--green);
+            border-radius: 999px;
+            padding: 0.7rem 0.95rem;
+            font-weight: 800;
+            font-size: 0.88rem;
+            cursor: pointer;
+            font-family: inherit;
             width: 100%;
         }
 
-        .quick-cards,
-        .answer-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .white-panel,
-        .sample-card,
-        .bottom-cta {
-            padding: 1.35rem;
+        .steps {
+            display: grid;
+            gap: 1rem;
         }
 
         .step {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 1rem;
+            align-items: start;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 1.35rem;
+            box-shadow: 0 12px 30px rgba(20, 83, 45, 0.05);
         }
 
         .step-number {
-            width: 44px;
-            height: 44px;
-            border-radius: 15px;
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--green-soft);
+            color: var(--green);
+            font-weight: 900;
+            font-family: Georgia, serif;
+            font-size: 1.15rem;
         }
-    }
-</style>
-</head> <body> <div class="page"> <nav class="topbar" aria-label="Top navigation"> <a class="brand-link" href="https://algboardroom.com/" aria-label="The Algorithmic Boardroom home"> <div class="brand"> <span class="brand-main">AIB</span> <span class="brand-beta">BETA</span> </div> </a> </nav>
-    <section class="hero">
-        <div class="spark" aria-hidden="true">
-            <svg viewBox="0 0 120 120" fill="none">
-                <path d="M60 10L71 45L108 34L78 59L109 84L71 75L60 110L49 75L11 84L42 59L12 34L49 45L60 10Z" stroke="#14532d" stroke-width="8" stroke-linejoin="round"/>
-                <circle cx="60" cy="60" r="8" fill="#14532d"/>
-            </svg>
-        </div>
 
-        <div class="badge">
-            <span class="badge-mark">AIB</span>
-            <span>Research Beta</span>
-        </div>
+        .step h3 {
+            margin: 0 0 0.35rem 0;
+            font-size: 1.15rem;
+            color: var(--text);
+        }
 
-        <h1>Get a second opinion on your favorite stock</h1>
+        .step p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
 
-        <p class="subtitle">
-            Join the early access list and receive two free AI-assisted stock audits focused on moat durability, management incentives, valuation risk, and thesis-breaking red flags.
-        </p>
+        .sample-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
 
-        <form class="hero-form" action="https://formspree.io/f/xnjkavaq" method="POST">
-            <input type="hidden" name="_subject" value="New Algorithmic Boardroom Signup">
-            <input type="hidden" name="_next" value="https://algboardroom.com/thanks.html">
+        .sample-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1rem;
+        }
 
-            <div class="email-pill">
-                <div class="email-pill-icon" aria-hidden="true">✦</div>
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <button type="submit">Get Free Audits</button>
+        .sample-top strong {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .sample-pill {
+            background: var(--green-soft);
+            color: var(--green);
+            border-radius: 999px;
+            padding: 0.35rem 0.7rem;
+            font-size: 0.78rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .sample-row {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sample-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .sample-row span {
+            display: block;
+            color: var(--green);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.35rem;
+        }
+
+        .sample-row p {
+            margin: 0;
+            color: var(--text);
+            font-size: 0.98rem;
+        }
+
+        .coming-next {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--sand);
+            border-radius: 24px;
+            padding: 1.6rem;
+            box-shadow: 0 12px 30px rgba(20, 83, 45, 0.05);
+        }
+
+        .coming-next h2 {
+            font-family: Georgia, serif;
+            color: var(--green);
+            margin: 0 0 0.7rem 0;
+            font-size: 1.45rem;
+        }
+
+        .coming-next p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .bottom-cta {
+            background: linear-gradient(180deg, #ffffff 0%, #f7faf6 100%);
+            border: 1px solid var(--border);
+            border-radius: 34px;
+            padding: 2.5rem 1.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .bottom-cta h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            line-height: 1.1;
+            letter-spacing: -0.045em;
+            margin: 0 0 1rem 0;
+        }
+
+        .feedback-section {
+            background: #edf1ed;
+            border: 1px dashed #cfd7cf;
+            border-radius: 24px;
+            padding: 1.5rem;
+        }
+
+        .feedback-section h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--green);
+            font-family: Georgia, serif;
+            font-size: 1.35rem;
+        }
+
+        .feedback-section p {
+            color: var(--muted);
+            margin: 0 0 1rem 0;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 130px;
+            resize: vertical;
+            border-radius: 18px;
+            border: 1px solid #cbd5e1;
+            padding: 1rem;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text);
+            outline: none;
+        }
+
+        textarea:focus,
+        select:focus,
+        input:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(20, 83, 45, 0.12);
+        }
+
+        .feedback-section button {
+            margin-top: 1rem;
+            border: none;
+            background: var(--green);
+            color: #ffffff;
+            border-radius: 999px;
+            padding: 0.9rem 1.2rem;
+            font-weight: 800;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        footer {
+            margin: 3rem 0 1rem 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                padding: 1rem;
+            }
+
+            .topbar-link,
+            .topbar-spacer {
+                display: none;
+            }
+
+            .topbar {
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 3rem 1.1rem 2.5rem 1.1rem;
+                border-radius: 30px;
+            }
+
+            .email-pill {
+                border-radius: 28px;
+                align-items: stretch;
+                flex-wrap: wrap;
+                padding: 0.65rem;
+            }
+
+            .email-pill-icon {
+                display: none;
+            }
+
+            .email-pill input {
+                flex: 1 1 100%;
+                padding: 0.85rem 0.75rem;
+                text-align: center;
+            }
+
+            .email-pill button {
+                width: 100%;
+            }
+
+            .field-grid,
+            .quick-cards,
+            .answer-grid,
+            .difference-grid,
+            .vote-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .white-panel,
+            .sample-card,
+            .bottom-cta {
+                padding: 1.35rem;
+            }
+
+            .step {
+                grid-template-columns: 1fr;
+            }
+
+            .step-number {
+                width: 44px;
+                height: 44px;
+                border-radius: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <nav class="topbar" aria-label="Top navigation">
+            <div class="topbar-spacer" aria-hidden="true"></div>
+            <a class="brand-link" href="./" aria-label="AIB Research Beta home">
+                <span class="brand-main">AIB</span>
+                <span class="brand-beta">BETA</span>
+            </a>
+            <a class="topbar-link" href="#beta-signup">Get Free Audits</a>
+        </nav>
+
+        <section class="hero">
+            <div class="spark" aria-hidden="true">
+                <svg viewBox="0 0 120 120" fill="none">
+                    <path d="M60 10L71 45L108 34L78 59L109 84L71 75L60 110L49 75L11 84L42 59L12 34L49 45L60 10Z" stroke="#14532d" stroke-width="8" stroke-linejoin="round"/>
+                    <circle cx="60" cy="60" r="8" fill="#14532d"/>
+                </svg>
             </div>
-        </form>
 
-        <div class="trust-note">
-            Research beta only. Not financial advice. No spam — just early access and free sample reports.
-        </div>
-
-        <div class="quick-cards">
-            <div class="quick-card">
-                <div class="quick-card-label">Popular</div>
-                <p>“Can my favorite stock survive a thesis stress test?”</p>
+            <div class="badge">
+                <span class="badge-mark">AIB</span>
+                <span>Research Beta</span>
             </div>
 
-            <div class="quick-card">
-                <div class="quick-card-label">Useful for</div>
-                <p>Long-term investors who want a clearer second opinion.</p>
-            </div>
+            <h1>Primary AI stock analysis for AI-friendly investors</h1>
 
-            <div class="quick-card">
-                <div class="quick-card-label">Focus</div>
-                <p>Moat durability, incentives, valuation risk, and red flags.</p>
-            </div>
-        </div>
-    </section>
+            <p class="subtitle">
+                Join the beta and receive 10 free AI-assisted stock audits built to pressure-test moat durability, customer behavior, management incentives, disclosure quality, valuation risk, and thesis-breaking red flags.
+            </p>
 
-    <main>
-        <section class="section">
-            <div class="section-header">
-                <h2>What the report helps you answer</h2>
-                <p>Most stock tools focus on price targets, headlines, or chart patterns. The Algorithmic Boardroom is designed to pressure-test the actual business behind a stock.</p>
-            </div>
+            <form id="beta-signup" class="hero-form" action="https://formspree.io/f/xnjkavaq" method="POST">
+                <input type="hidden" name="_subject" value="New AIB Beta Signup">
+                <input type="hidden" name="_next" value="https://algboardroom.com/thanks.html">
 
-            <div class="white-panel">
-                <div class="answer-grid">
-                    <div class="answer-card">
-                        <strong>Is the business actually durable?</strong>
-                        <span>Review moat strength, pricing power, customer loyalty, and competitive pressure.</span>
+                <div class="email-pill">
+                    <div class="email-pill-icon" aria-hidden="true">&#10022;</div>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Get 10 Free Audits</button>
+                </div>
+
+                <details class="optional-questions">
+                    <summary>Optional: help shape the beta in 20 seconds</summary>
+                    <div class="field-grid">
+                        <div class="field">
+                            <label for="investor_type">What best describes you?</label>
+                            <select id="investor_type" name="investor_type">
+                                <option value="">Select one</option>
+                                <option>AI-friendly individual investor</option>
+                                <option>Long-term stock picker</option>
+                                <option>Finance student</option>
+                                <option>Analyst or researcher</option>
+                                <option>Builder or founder</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="reports_wanted">How many reports would you want?</label>
+                            <select id="reports_wanted" name="reports_wanted">
+                                <option value="">Select one</option>
+                                <option>5 reports</option>
+                                <option>10 reports</option>
+                                <option>20 reports</option>
+                                <option>50 reports</option>
+                                <option>Unlimited watchlist coverage</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="trust_factor">What would make AI research trustworthy?</label>
+                            <select id="trust_factor" name="trust_factor">
+                                <option value="">Select one</option>
+                                <option>Citations and source transparency</option>
+                                <option>Disclosure quality and management candor checks</option>
+                                <option>CFA/FINRA-aware research standards</option>
+                                <option>Fair value ranges</option>
+                                <option>Public-source scuttlebutt proxy research</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="first_ticker">Optional ticker or watchlist</label>
+                            <input id="first_ticker" name="first_ticker" type="text" placeholder="Example: AAPL, COST, SAPPE">
+                        </div>
                     </div>
+                </details>
+            </form>
 
-                    <div class="answer-card">
-                        <strong>What could break the thesis?</strong>
-                        <span>Identify disruption threats, weakening advantages, and hidden fragility.</span>
-                    </div>
+            <div class="trust-note">
+                Research beta only. Not financial advice. No spam - just early access and free sample reports.
+            </div>
 
-                    <div class="answer-card">
-                        <strong>Is management aligned?</strong>
-                        <span>Flag incentive distortions, overoptimistic language, and capital-allocation concerns.</span>
-                    </div>
+            <div class="quick-cards">
+                <div class="quick-card">
+                    <div class="quick-card-label">Built for</div>
+                    <p>Investors who already use AI and want a deeper workflow than one prompt.</p>
+                </div>
+
+                <div class="quick-card">
+                    <div class="quick-card-label">Powered by</div>
+                    <p>Hundreds of specialized AI research agents reviewing different parts of the thesis.</p>
+                </div>
+
+                <div class="quick-card">
+                    <div class="quick-card-label">Beta offer</div>
+                    <p>Get 10 free stock audits so you can test more than one idea or watchlist name.</p>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="section-header">
-                <h2>How the audit works</h2>
-                <p>The system is built around a research process designed to challenge the investment case from multiple angles.</p>
-            </div>
+        <main>
+            <section class="section">
+                <div class="section-header">
+                    <h2>What the report helps you answer</h2>
+                    <p>AIB is designed to help investors analyze the business behind a stock, not just react to price charts or headlines.</p>
+                </div>
 
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">I</div>
-                    <div>
-                        <h3>Business Quality Review</h3>
-                        <p>The audit reviews operational quality, cost structure, customer behavior, pricing power, and qualitative moat indicators.</p>
+                <div class="white-panel">
+                    <div class="answer-grid">
+                        <div class="answer-card">
+                            <strong>Is the business actually durable?</strong>
+                            <span>Review moat strength, pricing power, customer loyalty, unit economics, and competitive pressure.</span>
+                        </div>
+
+                        <div class="answer-card">
+                            <strong>How do customers actually behave?</strong>
+                            <span>Look at purchasing behavior, switching friction, habit formation, demand signals, and possible consumer frustration.</span>
+                        </div>
+
+                        <div class="answer-card">
+                            <strong>Is management being candid?</strong>
+                            <span>Flag vague language, missing unit or physical-volume disclosures, KPI changes, and incentive-driven narratives.</span>
+                        </div>
+
+                        <div class="answer-card">
+                            <strong>What could break the thesis?</strong>
+                            <span>Identify disruption threats, weakening advantages, reinvestment problems, and hidden fragility.</span>
+                        </div>
+
+                        <div class="answer-card">
+                            <strong>Where might investors be biased?</strong>
+                            <span>Use cognitive-bias checks to find overconfidence, narrative traps, social proof, anchoring, and misplaced certainty.</span>
+                        </div>
+
+                        <div class="answer-card">
+                            <strong>What needs further work?</strong>
+                            <span>Surface the most important open questions an investor should investigate before committing capital.</span>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="step">
-                    <div class="step-number">II</div>
-                    <div>
-                        <h3>Thesis Stress Test</h3>
-                        <p>The report looks for reasons the bullish case could be wrong, including disruption risk, weakening customer loyalty, poor reinvestment, and hidden fragility.</p>
+            <section class="section">
+                <div class="section-header">
+                    <h2>Different from a screener, dashboard, or generic AI chat</h2>
+                    <p>AIB is meant to be a primary stock-analysis workflow for AI-friendly investors, not a replacement for raw data platforms.</p>
+                </div>
+
+                <div class="white-panel">
+                    <div class="difference-grid">
+                        <div class="difference-card">
+                            <strong>Beyond screeners</strong>
+                            <span>Screeners help you find stocks. AIB is designed to pressure-test whether a business thesis deserves attention.</span>
+                        </div>
+
+                        <div class="difference-card">
+                            <strong>Beyond dashboards</strong>
+                            <span>Dashboards organize data. AIB turns the investigation into a structured research report with risk questions.</span>
+                        </div>
+
+                        <div class="difference-card">
+                            <strong>Beyond one prompt</strong>
+                            <span>AIB uses specialized research agents for business quality, psychology, disclosure quality, valuation risk, and thesis stress testing.</span>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="step">
-                    <div class="step-number">III</div>
-                    <div>
-                        <h3>Final Research Summary</h3>
-                        <p>The result is a structured summary focused on business durability, management incentives, valuation risk, and key questions an investor should investigate further.</p>
+            <section class="section">
+                <div class="section-header">
+                    <h2>How the audit works</h2>
+                    <p>The system is built around a structured research process designed to challenge the investment case from multiple angles.</p>
+                </div>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">I</div>
+                        <div>
+                            <h3>Business Quality Review</h3>
+                            <p>Agents review operational quality, cost structure, customer behavior, pricing power, qualitative moat indicators, and business durability.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">II</div>
+                        <div>
+                            <h3>Psychology and Consumer Behavior Check</h3>
+                            <p>Specialized agents look for investor cognitive biases and economic behavior patterns in how customers buy, repeat, switch, complain, or stay loyal.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">III</div>
+                        <div>
+                            <h3>Management Candor and Disclosure Review</h3>
+                            <p>The audit flags unclear executive language, changing KPIs, missing physical-volume data, and cases where revenue growth may hide weak underlying demand.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">IV</div>
+                        <div>
+                            <h3>Standards-Aware Research Summary</h3>
+                            <p>The final report is designed with professional research discipline in mind, including source transparency, separation of facts from assumptions, and clear risk framing.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="section">
-            <div class="section-header">
-                <h2>Sample audit excerpt</h2>
-                <p>A simple preview of the type of second-opinion output the beta is designed to produce.</p>
-            </div>
-
-            <div class="sample-card">
-                <div class="sample-top">
-                    <strong>Business Thesis Stress Test</strong>
-                    <span class="sample-pill">Sample</span>
+            <section class="section">
+                <div class="section-header">
+                    <h2>Sample audit excerpt</h2>
+                    <p>A simple preview of the kind of output the beta is designed to produce.</p>
                 </div>
 
-                <div class="sample-row">
-                    <span>Business Quality Review</span>
-                    <p>The company appears to have durable customer recognition and favorable pricing power relative to several competitors.</p>
-                </div>
-
-                <div class="sample-row">
-                    <span>Thesis Stress Test</span>
-                    <p>The main risk is whether distribution changes or customer switching behavior could weaken the advantage faster than current investors expect.</p>
-                </div>
-
-                <div class="sample-row">
-                    <span>Research Summary</span>
-                    <p>The business deserves further study, but the investment case depends heavily on whether the moat remains intact while management continues reinvesting capital efficiently.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="coming-next">
-                <h2>Coming next: approximate fair value ranges</h2>
-                <p>
-                    The current beta focuses on business quality, moat durability, management incentives, valuation risk, and red flags. Future versions will add approximate fair value ranges designed to help investors compare the current market price against estimated intrinsic value.
-                </p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="bottom-cta">
-                <h2>Get 2 free stock audits</h2>
-                <p class="subtitle">
-                    Enter your email to get early access and receive two free sample audit reports.
-                </p>
-
-                <form class="hero-form" action="https://formspree.io/f/xnjkavaq" method="POST">
-                    <input type="hidden" name="_subject" value="New Algorithmic Boardroom Signup">
-                    <input type="hidden" name="_next" value="https://algboardroom.com/thanks.html">
-
-                    <div class="email-pill">
-                        <div class="email-pill-icon" aria-hidden="true">✦</div>
-                        <input type="email" name="email" placeholder="Enter your email" required>
-                        <button type="submit">Get Free Audits</button>
+                <div class="sample-card">
+                    <div class="sample-top">
+                        <strong>Business Thesis Stress Test</strong>
+                        <span class="sample-pill">Sample</span>
                     </div>
-                </form>
 
-                <div class="trust-note">
-                    Research beta only. Not financial advice. No spam.
+                    <div class="sample-row">
+                        <span>Business Quality Review</span>
+                        <p>The company appears to have durable customer recognition and favorable pricing power relative to several competitors.</p>
+                    </div>
+
+                    <div class="sample-row">
+                        <span>Customer Behavior Review</span>
+                        <p>The key question is whether repeat purchasing reflects genuine preference, switching friction, or a temporary lack of alternatives.</p>
+                    </div>
+
+                    <div class="sample-row">
+                        <span>Disclosure Quality Review</span>
+                        <p>The report would flag cases where management stops disclosing unit sales, physical volume, retention, or other metrics that investors need to judge real demand.</p>
+                    </div>
+
+                    <div class="sample-row">
+                        <span>Research Summary</span>
+                        <p>The business deserves further study, but the investment case depends heavily on whether the moat remains intact while management continues reinvesting capital efficiently.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="section">
-            <div class="feedback-section">
-                <h3>Submit system feedback</h3>
-                <p>Tell us what investment metrics, red flags, or business frameworks you want included in future stock audits.</p>
+            <section class="section">
+                <div class="coming-next">
+                    <h2>Coming next: fair value ranges and public-source research signals</h2>
+                    <p>
+                        The current beta focuses on business quality, customer behavior, management incentives, disclosure quality, valuation risk, and red flags. Future versions will add approximate fair value ranges and public-source research signals from reviews, transcripts, filings, job postings, app reviews, forums, competitor materials, and other non-interview sources.
+                    </p>
+                </div>
+            </section>
 
-                <form action="https://formspree.io/f/xnjkavaq" method="POST">
-                    <input type="hidden" name="_subject" value="New Algorithmic Boardroom Feedback">
+            <section class="section">
+                <div class="section-header">
+                    <h2>Vote on what to build next</h2>
+                    <p>These buttons send a quick feature vote so the beta can be shaped by real demand without requiring customer interviews.</p>
+                </div>
 
-                    <textarea name="feedback" placeholder="Submit feedback" required></textarea>
+                <div class="white-panel">
+                    <div class="vote-grid">
+                        <div class="vote-card">
+                            <strong>Fair value ranges</strong>
+                            <span>Approximate intrinsic-value ranges and key valuation assumptions.</span>
+                            <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                                <input type="hidden" name="_subject" value="AIB Feature Vote">
+                                <input type="hidden" name="feature_vote" value="Fair value ranges">
+                                <button type="submit">Vote for this</button>
+                            </form>
+                        </div>
 
-                    <button type="submit">Submit Feedback</button>
-                </form>
-            </div>
-        </section>
-    </main>
+                        <div class="vote-card">
+                            <strong>Management candor score</strong>
+                            <span>Disclosure quality, KPI changes, and missing physical-volume checks.</span>
+                            <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                                <input type="hidden" name="_subject" value="AIB Feature Vote">
+                                <input type="hidden" name="feature_vote" value="Management candor score">
+                                <button type="submit">Vote for this</button>
+                            </form>
+                        </div>
 
-    <footer>
-        AIB Research Beta · The Algorithmic Boardroom
-    </footer>
-</div>
-</body> </html>
+                        <div class="vote-card">
+                            <strong>Psychology and behavior audit</strong>
+                            <span>Cognitive-bias checks and analysis of customer purchasing behavior.</span>
+                            <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                                <input type="hidden" name="_subject" value="AIB Feature Vote">
+                                <input type="hidden" name="feature_vote" value="Psychology and behavior audit">
+                                <button type="submit">Vote for this</button>
+                            </form>
+                        </div>
+
+                        <div class="vote-card">
+                            <strong>Public-source scuttlebutt proxy</strong>
+                            <span>Signals from reviews, forums, job postings, transcripts, and customer comments.</span>
+                            <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                                <input type="hidden" name="_subject" value="AIB Feature Vote">
+                                <input type="hidden" name="feature_vote" value="Public-source scuttlebutt proxy">
+                                <button type="submit">Vote for this</button>
+                            </form>
+                        </div>
+
+                        <div class="vote-card">
+                            <strong>Buffett-style business review</strong>
+                            <span>Moat, owner earnings, capital allocation, incentives, and durability.</span>
+                            <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                                <input type="hidden" name="_subject" value="AIB Feature Vote">
+                                <input type="hidden" name="feature_vote" value="Buffett-style business review">
+                                <button type="submit">Vote for this</button>
+                            </form>
+                        </div>
+
+                        <div class="vote-card">
+                            <strong>CFA/FINRA-aware structure</strong>
+                            <span>Source discipline, risk framing, assumptions, conflicts, and fact/opinion separation.</span>
+                            <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                                <input type="hidden" name="_subject" value="AIB Feature Vote">
+                                <input type="hidden" name="feature_vote" value="CFA/FINRA-aware structure">
+                                <button type="submit">Vote for this</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="bottom-cta">
+                    <h2>Get 10 free AI stock audits</h2>
+                    <p class="subtitle">
+                        Enter your email to get early access and test AIB across more than one stock idea.
+                    </p>
+
+                    <form class="hero-form" action="https://formspree.io/f/xnjkavaq" method="POST">
+                        <input type="hidden" name="_subject" value="New AIB Beta Signup">
+                        <input type="hidden" name="_next" value="https://algboardroom.com/thanks.html">
+
+                        <div class="email-pill">
+                            <div class="email-pill-icon" aria-hidden="true">&#10022;</div>
+                            <input type="email" name="email" placeholder="Enter your email" required>
+                            <button type="submit">Get 10 Free Audits</button>
+                        </div>
+                    </form>
+
+                    <div class="trust-note">
+                        Research beta only. Not financial advice. No spam.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="feedback-section">
+                    <h3>Submit system feedback</h3>
+                    <p>Tell us what investment metrics, red flags, or business frameworks you want included in future stock audits.</p>
+
+                    <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                        <input type="hidden" name="_subject" value="New AIB Feedback">
+
+                        <textarea name="feedback" placeholder="Submit feedback" required></textarea>
+
+                        <button type="submit">Submit Feedback</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            AIB Research Beta - The Algorithmic Boardroom
+        </footer>
+    </div>
+</body>
+</html>
