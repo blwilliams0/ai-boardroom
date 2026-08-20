@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks - AIB Research Beta</title>
+
+    <link rel="icon" type="image/png" href="./algboardroom-logo.png?v=10">
+    <link rel="apple-touch-icon" href="./algboardroom-logo.png?v=10">
+
+    <style>
+        :root {
+            --bg: #f6f7f5;
+            --panel: #ffffff;
+            --text: #2f302d;
+            --muted: #6f746d;
+            --green: #14532d;
+            --green-soft: #e8f1eb;
+            --green-hover: #166534;
+            --sand: #d6b56d;
+            --border: #e1e5de;
+            --shadow: 0 18px 45px rgba(20, 83, 45, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.55;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 1.25rem;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: center;
+            padding: 0.8rem 0.25rem 1.25rem 0.25rem;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: baseline;
+            gap: 0.35rem;
+            font-weight: 800;
+            font-size: 1.45rem;
+            letter-spacing: -0.04em;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .brand-beta {
+            color: var(--green);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            font-weight: 800;
+        }
+
+        .panel {
+            background: linear-gradient(180deg, #ffffff 0%, #f8faf7 100%);
+            border: 1px solid var(--border);
+            border-radius: 34px;
+            padding: 3rem 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            line-height: 1.05;
+            letter-spacing: -0.055em;
+            margin: 0 0 1rem 0;
+            color: var(--text);
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin: 0 0 2rem 0;
+            max-width: 650px;
+        }
+
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .field-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .field {
+            display: grid;
+            gap: 0.35rem;
+        }
+
+        label {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 800;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 0.9rem 1rem;
+            background: #ffffff;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        button,
+        .home-link {
+            border: none;
+            background: var(--green);
+            color: #ffffff;
+            border-radius: 999px;
+            padding: 0.9rem 1.25rem;
+            font-weight: 800;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+        }
+
+        .home-link {
+            background: #ffffff;
+            color: var(--green);
+            border: 1px solid rgba(20, 83, 45, 0.22);
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 700px) {
+            .field-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .panel {
+                padding: 2rem 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <nav class="topbar" aria-label="Top navigation">
+            <a class="brand-link" href="./" aria-label="AIB Research Beta home">
+                <span>AIB</span>
+                <span class="brand-beta">BETA</span>
+            </a>
+        </nav>
+
+        <main class="panel">
+            <h1>You are on the beta list.</h1>
+            <p class="subtitle">
+                Thanks for joining AIB Research Beta. One more optional step: answer a few quick questions so the first version can be built around how investors actually research stocks.
+            </p>
+
+            <form action="https://formspree.io/f/xnjkavaq" method="POST">
+                <input type="hidden" name="_subject" value="AIB Post-Signup Survey">
+
+                <div class="field-grid">
+                    <div class="field">
+                        <label for="stocks_per_month">How many stocks do you research in a typical month?</label>
+                        <select id="stocks_per_month" name="stocks_per_month">
+                            <option value="">Select one</option>
+                            <option>1-3</option>
+                            <option>4-10</option>
+                            <option>11-25</option>
+                            <option>26-50</option>
+                            <option>50+</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="reports_wanted">How many free reports would feel useful?</label>
+                        <select id="reports_wanted" name="reports_wanted">
+                            <option value="">Select one</option>
+                            <option>2</option>
+                            <option>5</option>
+                            <option>10</option>
+                            <option>20</option>
+                            <option>50+</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="current_tool">What do you currently use most?</label>
+                        <select id="current_tool" name="current_tool">
+                            <option value="">Select one</option>
+                            <option>ChatGPT or Claude</option>
+                            <option>Perplexity</option>
+                            <option>Seeking Alpha</option>
+                            <option>Finviz</option>
+                            <option>Koyfin</option>
+                            <option>Broker research</option>
+                            <option>Spreadsheets</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="trust_factor">What would make an AI stock report trustworthy?</label>
+                        <select id="trust_factor" name="trust_factor">
+                            <option value="">Select one</option>
+                            <option>Citations and source transparency</option>
+                            <option>Clear assumptions and limits</option>
+                            <option>Management candor checks</option>
+                            <option>Fair value ranges</option>
+                            <option>Professional research standards</option>
+                            <option>Ability to audit many stocks quickly</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="stocks_to_analyze">What stocks would you want AIB to analyze first?</label>
+                    <textarea id="stocks_to_analyze" name="stocks_to_analyze" placeholder="Example: AAPL, COST, SAPPE, my watchlist, AI infrastructure companies, consumer staples..."></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="extra_feedback">What would make this useful enough to keep using?</label>
+                    <textarea id="extra_feedback" name="extra_feedback" placeholder="Anything you want the beta to include or avoid."></textarea>
+                </div>
+
+                <div class="button-row">
+                    <button type="submit">Submit Survey</button>
+                    <a class="home-link" href="./">Back to site</a>
+                </div>
+            </form>
+
+            <p class="note">Research beta only. Not financial advice.</p>
+        </main>
+    </div>
+</body>
+</html>
